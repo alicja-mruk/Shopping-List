@@ -8,6 +8,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ShoppingViewModel(private val repository: ShoppingRepository) : ViewModel() {
+    init {
+        getAllShoppingItems()
+    }
 
     fun upsert(item: ShoppingItem) = CoroutineScope(Dispatchers.Main).launch {
         repository.upsert(item)
