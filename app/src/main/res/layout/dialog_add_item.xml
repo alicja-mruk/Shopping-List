@@ -14,10 +14,6 @@
         android:padding="10dp"
         android:gravity="top"
         android:hint="@string/enter_product"
-        android:inputType="textMultiLine"
-        android:lines="2"
-        android:maxLines="2"
-        android:minLines="2"
         android:scrollbars="vertical" />
 
     <EditText

@@ -1,7 +1,9 @@
 package com.mvvm.grocerylist
 
 import android.app.Application
+import com.mvvm.grocerylist.di.modules.databaseModule
 import com.mvvm.grocerylist.di.modules.shoppingViewModel
+import com.mvvm.grocerylist.di.modules.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -17,5 +19,5 @@ class App : Application() {
             modules(moduleList)
         }
     }
-    private val moduleList = shoppingViewModel
+    private val moduleList = viewModelModule +  databaseModule
 }

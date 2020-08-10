@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mvvm.grocerylist.R
 import com.mvvm.grocerylist.data.db.entity.ShoppingItem
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -30,19 +32,20 @@ class ShoppingFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        setAdapter()
+        initView()
 
     }
 
     fun onFabButtonCLicked() {
         createAddItemDialog()
-        //add item to the recycler view
-        //init dialog text
-//        viewModel.upsert(it)
-//        adapter.updateAdapterList()
     }
 
-    fun setAdapter() {
+    private fun initView(){
+        setRecyclerView()
+        setAdapter()
+    }
+
+    private fun setAdapter() {
         adapter = ShoppingListAdapter(viewModel)
         binding.recyclerView.adapter = adapter
 
@@ -55,6 +58,11 @@ class ShoppingFragment : Fragment() {
             viewModel.delete(it)
             adapter.updateAdapterList()
         }
+    }
+
+    private fun setRecyclerView(){
+        val linearLayoutManager = LinearLayoutManager(activity)
+        binding.recyclerView.layoutManager = linearLayoutManager
     }
 
     private fun createAddItemDialog() {
