@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "shopping_items")
 data class ShoppingItem(
     var name: String,
-    var currency: Int
+    var currency: String
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null

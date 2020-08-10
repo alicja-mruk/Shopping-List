@@ -13,4 +13,6 @@ class ShoppingActivity : AppCompatActivity() {
         binding = ActivityShoppingBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+
+
 }

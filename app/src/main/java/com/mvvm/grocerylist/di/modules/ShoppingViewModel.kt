@@ -11,8 +11,6 @@ val shoppingViewModel = module{
     viewModel {
         ShoppingViewModel(get())
     }
-    single{ ShoppingRepository(get())}
-    single {
-        ShoppingDatabase
-    }
 }
+
+val viewModelModule = listOf(shoppingViewModel)
