@@ -19,5 +19,5 @@ class App : Application() {
             modules(moduleList)
         }
     }
-    private val moduleList = viewModelModule  +  databaseModule
+    private val moduleList = databaseModule + viewModelModule
 }

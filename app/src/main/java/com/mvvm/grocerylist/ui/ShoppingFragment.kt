@@ -53,12 +53,10 @@ class ShoppingFragment : Fragment() {
 
         adapter.onAddItemClick = {
             viewModel.upsert(it)
-            adapter.updateAdapterList()
         }
 
         adapter.onRemoveItemClick = {
             viewModel.delete(it)
-            adapter.updateAdapterList()
         }
     }
 
@@ -78,10 +76,13 @@ class ShoppingFragment : Fragment() {
 
         alertDialog?.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
             DialogInterface.OnClickListener { _, _ ->
+                val productName = productNameEditText.text.toString()
+                val productCurrency = productCurrencyEditText.text.toString()
+
                 val newShoppingItem =
-                    ShoppingItem(productNameEditText.toString(), productCurrencyEditText.toString())
+                    ShoppingItem(productName, productCurrency)
+
                 viewModel.upsert(newShoppingItem)
-                adapter.updateAdapterList()
                 alertDialog.dismiss()
             })
 
@@ -95,6 +96,7 @@ class ShoppingFragment : Fragment() {
 
         alertDialog?.setView(view);
         alertDialog?.show()
+
     }
 
 
