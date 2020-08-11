@@ -9,5 +9,5 @@ data class ShoppingItem(
     var currency: String
 ) {
     @PrimaryKey(autoGenerate = true)
-    var id: Int? = null
+    var id: Int = 0
 }

@@ -1,5 +1,6 @@
 package com.mvvm.grocerylist.ui.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,13 +14,14 @@ import kotlinx.android.synthetic.main.shopping_item.view.*
 class ShoppingListAdapter(private val viewModel: ShoppingViewModel) :
     RecyclerView.Adapter<ShoppingListAdapter.ShoppingItemViewHolder>() {
 
+
     private var items = viewModel.getAllShoppingItems().value
 
     var onAddItemClick: ((ShoppingItem) -> Unit)? = null
     var onRemoveItemClick: ((ShoppingItem) -> Unit)? = null
 
     fun updateAdapterList() {
-        viewModel.getAllShoppingItems()
+        items = viewModel.getAllShoppingItems().value
         notifyDataSetChanged()
     }
 

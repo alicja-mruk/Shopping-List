@@ -33,10 +33,12 @@ class ShoppingFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initView()
-
+        binding.addFabButton.setOnClickListener{
+            onFabButtonCLicked()
+        }
     }
 
-    fun onFabButtonCLicked() {
+    private fun onFabButtonCLicked() {
         createAddItemDialog()
     }
 
